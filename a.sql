@@ -1,12 +1,6 @@
-select nom_ven
-from tvendedor
-where exists (
-    select *
-    from tcliente c1
-    where cod_ven = c1.vendedor
-    and not exists(
-        select *
-        from tcliente c2
-        where c1.provincia 
-    )
-)
+create table nombres 
+as select a.nombre, b.nom_ven, c.nombre nom_prov 
+from tcliente a, tvendedor b, tprovincia c 
+where a.vendedor=b.cod_ven 
+and a.provincia (+)=c.codigo ;
+-- El (+) es porque hay un cliente con la provincia 'M', pero no existe en tprovincia

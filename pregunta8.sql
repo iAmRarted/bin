@@ -1,0 +1,1 @@
+alter table tarticulo modify(precio number(7,2), procedencia varchar2(15));

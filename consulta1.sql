@@ -20,8 +20,4 @@ where exists(
                 and exists(
                     select *
                     from MAT_ART ma1
-                    where ma1.nombreMateria = m1.nombreMateria
-                    and exists(
-                        select *
-                        from articulo a1
-                        where a1.numeroArticulo = ma1.numeroArticulo))))));
+                    where ma1.nombreMateria = m1.nombreMateria)))));

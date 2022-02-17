@@ -19,9 +19,4 @@ and exists(
         and exists(
             select *
             from ins_pro
-            where PROYECTO.nombreProyecto = ins_pro.nombreProyecto
-            and exists(
-                select *
-                from institucion
-                where ins_pro.nombreInstitucion = institucion.nombreInstitucion
-                and institucion.nombreInstitucion = '&institucion'))));
+            where PROYECTO.nombreProyecto = ins_pro.nombreProyecto)));

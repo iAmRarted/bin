@@ -4,16 +4,16 @@ from emple
 where exists(
     select *
     from EMP_EMP
-    where dni = dni_supervisor
+    where dni = dni_supervisor)
+and exists(
+    select *
+    from emp_inv_pro
+    where emple.dni = emp_inv_pro.dni
     and exists(
         select *
-        from emp_inv_pro
-        where dni = dni_supervisado
-        and exists(
+        from proyecto
+        where emp_inv_pro.nombreProyecto = proyecto.nombreProyecto
+        and not exists(
             select *
-            from proyecto
-            where emp_inv_pro.nombreProyecto = proyecto.nombreProyecto
-            and not exists(
-                select *
-                from articulo
-                where articulo.nombreProyecto = proyecto.nombreProyecto))));
+            from articulo
+            where articulo.nombreProyecto = proyecto.nombreProyecto)));

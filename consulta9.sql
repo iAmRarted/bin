@@ -5,4 +5,4 @@ where exists(
     select *
     from ins_pro
     where proyecto.nombreProyecto = ins_pro.nombreProyecto
-    having count(fecha) = 1);
+    having count(distinct(fecha)) = 1);

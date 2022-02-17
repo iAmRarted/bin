@@ -16,4 +16,4 @@ where exists(
 				having count(dni)=(
 					select max(count(dni))
 					from EMP_TRA_PRO
-					group by dni))));
+					group by nombreProyecto))));

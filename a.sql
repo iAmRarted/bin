@@ -1,12 +1,6 @@
-create view clienprov2 as
-select nombre
-from tprovincia
-where 1 < (
-    select count(*)
-    from tprovincia
-    where exists(
-        select *
-        from tcliente
-        where provincia = codigo
-    )
-);
+-- CREATE USER C##TRABAJADOR1 IDENTIFIED BY cesar
+-- DEFAULT TABLESPACE users
+-- TEMPORARY TABLESPACE TEMP
+-- quota 200k on users;
+
+grant create session to c##trabajador1;

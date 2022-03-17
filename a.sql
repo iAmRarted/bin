@@ -1,19 +1,24 @@
-DECLARE 
-    nota number(4):=&nota;
-    asignatura varchar2(20):='&asignatura';
+-- create or replace function factorial(x number) return number is
+-- BEGIN
+-- 	if x=0 then
+-- 		return 1;
+-- 	else
+-- 		return x*factorial(x-1);
+-- 	end if;
+-- end factorial;
+-- /
+
+create or replace function sumatorio(x number) return number is
 BEGIN
-    if nota < 0 or nota > 10 then
-        dbms_output.put_line('ERROR, NOTA INCORRECTA');
-    elsif nota < 5 then
-        dbms_output.put_line('Has sacado INSUFICIENTE en '||asignatura);
-    elsif nota < 6 then
-        dbms_output.put_line('Has sacado SUFICIENTE en '||asignatura);
-    elsif nota < 7 then
-        dbms_output.put_line('Has sacado BIEN en '||asignatura);
-    elsif nota < 9 then
-        dbms_output.put_line('Has sacado NOTABLE en '||asignatura);
-    else
-        dbms_output.put_line('Has sacado SOBRESALIENTE en '||asignatura);
-    end if;
-END;
+	if x=0 then
+		return 0;
+	else
+		return x+factorial(x-1);
+	end if;
+end sumatorio;
+/
+
+BEGIN
+	dbms_output.put_line(sumatorio(5));
+end;
 /
